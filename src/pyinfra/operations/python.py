@@ -28,7 +28,7 @@ def call(function: Callable, *args, **kwargs):
             if hello:
                 command = command + ' ' + hello
 
-            status, stdout, stderr = host.run_shell_command(command=command, sudo=SUDO)
+            status, output = host.run_shell_command(command=command, sudo=SUDO)
             assert status is True  # ensure the command executed OK
 
             if 'hello ' not in '\\n'.join(stdout):  # stdout/stderr is a *list* of lines
